@@ -83,16 +83,14 @@ public class PlayerController : MonoBehaviour
             horizontalInput = 0f;
         }
 
+        if(isDead)
+        {
+            return;
+        }
+
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
         Jump();
-    
-        if(isDead)
-        {
-            horizontalInput = 0f;
-            jumpInput = 0f;
-        }
-
         HandleAnimation();
     }
 
