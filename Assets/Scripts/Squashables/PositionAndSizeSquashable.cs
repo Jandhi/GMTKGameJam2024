@@ -14,7 +14,7 @@ public class PositionAndSizeSquashable : PositionSquashable
     // Start is called before the first frame update
     void Start()
     {
-        Squashables.Add(this);
+        Initialize();
         sprite = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
         baseSize = sprite.size;

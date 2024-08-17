@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
     private Rigidbody2D rb;
     private float jumpInput;
+    public bool isDead = false;
+    public GameObject spawnPoint;
 
     [SerializeField] EdgeCollider2D feetCollider;
     [SerializeField] EdgeCollider2D rightCollider;
@@ -24,19 +26,41 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void Die()
+    {
+        this.isDead = true;
+        StartCoroutine(DelayedSpawn());
+    }
+
+    IEnumerator DelayedSpawn()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Respawn();
+    }
+
+    void Respawn()
+    {
+        this.isDead = false;
+        transform.position = spawnPoint.transform.position;
+        GetComponent<Rigidbody2D>().totalForce = Vector2.zero;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Vertical"))
+        if(isDead) return;
+        
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Vertical") || Input.GetKey(KeyCode.Space))
         {
             jumpInput = 1;
         }
         if (Input.GetKeyDown(KeyCode.Comma))
         {
-            Squashable.ToggleSquash(transform.position);
+            SquashManager.Instance.ToggleSquash(transform.position);
         }
         if (Input.GetKeyDown(KeyCode.Period))
         {
-            Squashable.ToggleSquash(transform.position, true);
+            SquashManager.Instance.ToggleSquash(transform.position, true);
         }
     }
 

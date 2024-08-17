@@ -6,7 +6,7 @@ public class PositionSquashable : Squashable
     
     void Start()
     {
-        Squashables.Add(this);
+        Initialize();
     }
 
     public override void Squash(Vector3 playerPosition)

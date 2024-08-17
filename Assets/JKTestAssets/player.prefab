@@ -67,8 +67,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: -0.5}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5, y: 0}
-  - {x: 0.5, y: 0}
+  - {x: -0.20814092, y: 0.39746013}
+  - {x: 0.11047383, y: 0.3943465}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -140,8 +140,8 @@ EdgeCollider2D:
   m_Offset: {x: 0.5, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: 0.4}
-  - {x: 0, y: -0.4}
+  - {x: -0.40841067, y: 0.081315905}
+  - {x: -0.41290438, y: -0.1029152}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -213,8 +213,8 @@ EdgeCollider2D:
   m_Offset: {x: -0.5, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: 0.4}
-  - {x: 0, y: -0.4}
+  - {x: 0.30439574, y: 0.09560433}
+  - {x: 0.29763126, y: -0.07869354}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -298,7 +298,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 79736247c1e2f6547b7eaec4ebbde43b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4bc0829bea7349a6b947a064d0c052d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -385,6 +385,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: -0.037502587, y: 0.015880883}
+  m_Size: {x: 0.26202905, y: 0.26202905}
   m_Direction: 0
