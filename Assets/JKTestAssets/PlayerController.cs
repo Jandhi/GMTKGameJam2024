@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
 
         Jump( jumpInput);
     
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Squashable.ToggleSquash(transform.position);
+        }
     }
 
     void InputHandling()
