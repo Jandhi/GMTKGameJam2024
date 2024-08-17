@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             jumpInput = 1;
         }
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            Squashable.ToggleSquash(transform.position);
+        }
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            Squashable.ToggleSquash(transform.position, true);
+        }
     }
 
     // Update is called once per frame
@@ -47,18 +55,6 @@ public class PlayerController : MonoBehaviour
 
         Jump();
     
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Comma))
-        {
-            Squashable.ToggleSquash(transform.position);
-        }
-        if (Input.GetKeyDown(KeyCode.Period))
-        {
-            Squashable.ToggleSquash(transform.position, true);
-        }
     }
 
     void InputHandling()
