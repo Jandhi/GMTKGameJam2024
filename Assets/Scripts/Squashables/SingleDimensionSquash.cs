@@ -6,25 +6,37 @@ public class SingleDimensionSquash : PositionAndSizeSquashable
 
     public override void Squash(Vector3 playerPosition)
     {
-        if(IsVertical) return;
-        base.Squash(playerPosition);
+        SquashPosition(playerPosition);
+        if (!IsVertical)
+        {
+            SquashSize();
+        }
     }
 
     public override void Unsquash(Vector3 playerPosition)
     {
-        if(IsVertical) return;
-        base.Unsquash(playerPosition);
+        UnsquashPosition(playerPosition);
+        if (!IsVertical)
+        {
+            UnsquashSize();
+        }
     }
 
     public override void VerticalSquash(Vector3 playerPosition)
     {
-        if(!IsVertical) return;
-        base.VerticalSquash(playerPosition);
+        VerticalSquashPosition(playerPosition);
+        if (IsVertical)
+        {
+            VerticalSquashSize();
+        }
     }
 
     public override void VerticalUnsquash(Vector3 playerPosition)
     {
-        if(!IsVertical) return;
-        base.VerticalUnsquash(playerPosition);
+        VerticalUnsquashPosition(playerPosition);
+        if (IsVertical)
+        {
+            VerticalUnsquashSize();
+        }
     }
 }
