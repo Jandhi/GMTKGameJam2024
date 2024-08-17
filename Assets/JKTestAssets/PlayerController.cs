@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
     private Rigidbody2D rb;
     private float jumpInput;
+    private Animator ani;
     public bool isDead = false;
     public GameObject spawnPoint;
 
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mask = LayerMask.GetMask("Platform");
-        
+        ani = GetComponent<Animator>();
     }
 
     public void Die()
@@ -79,12 +80,21 @@ public class PlayerController : MonoBehaviour
 
         Jump();
     
+        HandleAnimation();
     }
 
     void InputHandling()
     {
-
+        if(feetCollider.IsTouchingLayers(mask))
+        {
+            //ani.SetBool("IsJumping" , "true");
+        }
+        else 
+        {
+            //ani.SetBool("IsJumping" , "true");
+        }
     }
+    
 
     void Jump()
     {
@@ -96,5 +106,10 @@ public class PlayerController : MonoBehaviour
         {
             jumpInput = 0;
         }
+    }
+
+    void HandleAnimation()
+    {
+
     }
 }
