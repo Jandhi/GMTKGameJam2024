@@ -9,31 +9,43 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 3f;
     public float jumpSpeed = 10f;
     private Rigidbody2D rb;
+    private float jumpInput;
 
-    [SerializeField] bool canJump = true;
-
+    [SerializeField] EdgeCollider2D feetCollider;
+    [SerializeField] EdgeCollider2D rightCollider;
+    [SerializeField] EdgeCollider2D leftCollider;
+    LayerMask mask;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        LayerMask mask = LayerMask.GetMask("Platform");
+        mask = LayerMask.GetMask("Platform");
+        
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Vertical"))
+        {
+            jumpInput = 1;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis ("Horizontal"); 
-        float jumpInput = Mathf.Max(Input.GetAxis("Jump") , Input.GetAxis("Vertical"));
+        // = Mathf.Max(Input.GetAxis("Jump") , Input.GetAxis("Vertical"));
 
+        if((rightCollider.IsTouchingLayers(mask) && horizontalInput>0) || (leftCollider.IsTouchingLayers(mask) && horizontalInput<0))
+        {
+            horizontalInput = 0f;
+        }
 
-        Vector2 movementDir = new Vector2(horizontalInput, 0);
+        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
-        Debug.Log(jumpInput);
-
-        rb.AddForce(movementDir * moveSpeed);
-
-        Jump( jumpInput);
+        Jump();
     
     }
 
@@ -54,16 +66,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Jump(float jumpInput)
+    void Jump()
     {
-        if(canJump && jumpInput >0)
+        if(feetCollider.IsTouchingLayers(mask) && jumpInput >0)
         {
             rb.AddForce(transform.up * jumpSpeed *jumpInput, ForceMode2D.Impulse);
-            canJump = false;
         }
-        else if(!canJump)
+        else
         {
-
+            jumpInput = 0;
         }
     }
 }
