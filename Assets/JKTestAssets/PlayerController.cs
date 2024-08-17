@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
     private Rigidbody2D rb;
     private float jumpInput;
+    private float horizontalInput;
+    private float animationHorizontalInput;
     private Animator ani;
+    private SpriteRenderer spr;
     public bool isDead = false;
     public GameObject spawnPoint;
 
@@ -25,11 +28,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mask = LayerMask.GetMask("Platform");
         ani = GetComponent<Animator>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     public void Die()
     {
         this.isDead = true;
+        ani.SetBool("IsDead", true);
         StartCoroutine(DelayedSpawn());
     }
 
@@ -41,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
+        ani.SetBool("IsDead", false);
         this.isDead = false;
         transform.position = spawnPoint.transform.position;
         GetComponent<Rigidbody2D>().totalForce = Vector2.zero;
@@ -68,7 +74,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxis ("Horizontal"); 
+        horizontalInput = Input.GetAxis ("Horizontal"); 
+        animationHorizontalInput = horizontalInput;
         // = Mathf.Max(Input.GetAxis("Jump") , Input.GetAxis("Vertical"));
 
         if((rightCollider.IsTouchingLayers(mask) && horizontalInput>0) || (leftCollider.IsTouchingLayers(mask) && horizontalInput<0))
@@ -80,19 +87,19 @@ public class PlayerController : MonoBehaviour
 
         Jump();
     
+        if(isDead)
+        {
+            horizontalInput = 0f;
+            jumpInput = 0f;
+        }
+
         HandleAnimation();
     }
 
     void InputHandling()
     {
-        if(feetCollider.IsTouchingLayers(mask))
-        {
-            //ani.SetBool("IsJumping" , "true");
-        }
-        else 
-        {
-            //ani.SetBool("IsJumping" , "true");
-        }
+
+
     }
     
 
@@ -106,10 +113,48 @@ public class PlayerController : MonoBehaviour
         {
             jumpInput = 0;
         }
+
     }
 
     void HandleAnimation()
     {
+        //set direction facing
+        if(animationHorizontalInput < 0)
+        {
+            spr.flipX = false;
+        }
+        else if( animationHorizontalInput > 0)
+        {
+            spr.flipX = true;
+        }
+        
 
+        if(feetCollider.IsTouchingLayers(mask))
+        {
+            ani.SetBool("IsJumping" , false); 
+
+            if(Mathf.Abs(animationHorizontalInput) > 0f)
+            {
+                Debug.Log(Input.GetButton ("Horizontal"));
+                ani.SetBool("IsRunning", true);
+            }
+            else
+            {
+                ani.SetBool("IsRunning", false);
+            }
+        }
+        else 
+        {
+            ani.SetBool("IsJumping" , true);
+            
+            if(rb.velocity.y < 0)
+            {
+                ani.SetBool("IsFalling", true);
+            }
+            else
+            {
+                ani.SetBool("IsFalling", false);
+            }
+        }
     }
 }
