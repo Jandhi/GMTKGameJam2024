@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,9 +35,17 @@ public class PlayerController : MonoBehaviour
 
         Jump( jumpInput);
     
-        if (Input.GetKeyDown(KeyCode.Space))
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Comma))
         {
             Squashable.ToggleSquash(transform.position);
+        }
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            Squashable.ToggleSquash(transform.position, true);
         }
     }
 

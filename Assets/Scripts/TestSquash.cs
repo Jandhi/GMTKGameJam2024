@@ -11,9 +11,13 @@ public class TestSquash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Comma))
         {
             Squashable.ToggleSquash(transform.position);
+        }
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            Squashable.ToggleSquash(transform.position, true);
         }
 
         var speed = 3.0f;
