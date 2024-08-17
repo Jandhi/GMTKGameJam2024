@@ -11,6 +11,11 @@ public class PositionSquashable : Squashable
 
     public override void Squash(Vector3 playerPosition)
     {
+        SquashPosition(playerPosition);
+    }
+
+    protected void SquashPosition(Vector3 playerPosition)
+    {
         var position = transform.position;
         
         var relativePosition = playerPosition - position;
@@ -22,6 +27,11 @@ public class PositionSquashable : Squashable
     }
 
     public override void Unsquash(Vector3 playerPosition)
+    {
+        UnsquashPosition(playerPosition);
+    }
+
+    protected void UnsquashPosition(Vector3 playerPosition)
     {
         var position = transform.position;
         
@@ -36,6 +46,11 @@ public class PositionSquashable : Squashable
     // VERTICAL SQUASH
     public override void VerticalSquash(Vector3 playerPosition)
     {
+        VerticalSquashPosition(playerPosition);
+    }
+
+    protected void VerticalSquashPosition(Vector3 playerPosition)
+    {
         var position = transform.position;
         
         var relativePosition = playerPosition - position;
@@ -48,6 +63,11 @@ public class PositionSquashable : Squashable
     }
 
     public override void VerticalUnsquash(Vector3 playerPosition)
+    {
+        VerticalUnsquashPosition(playerPosition);
+    }
+
+    public void VerticalUnsquashPosition(Vector3 playerPosition)
     {
         var position = transform.position;
         

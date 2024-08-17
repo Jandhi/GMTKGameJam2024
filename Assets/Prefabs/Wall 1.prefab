@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1215222670180315266}
   - component: {fileID: 4815305754993714125}
   - component: {fileID: 3015431281223999007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.07, y: 0.07, z: 0.07, w: 0.07}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.5, y: 0.5}
