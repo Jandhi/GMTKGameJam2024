@@ -33,16 +33,16 @@ public class PositionAndSizeSquashable : PositionSquashable
     protected void SquashSize()
     {
         var size = sprite.size;
-        Tween.Value(size, new Vector2(size.x / 2, size.y), (val) =>
+        Tween.Value(size.x, size.x / 2, (val) =>
         {
-            sprite.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            sprite.size = new Vector2(val, sprite.size.y);
+        }, SquashTime, 0.0f, Animation.Curve);
         
         var colliderSize = collider.size;
-        Tween.Value(colliderSize, new Vector2(colliderSize.x / 2, colliderSize.y), (val) =>
+        Tween.Value(colliderSize.x, colliderSize.x / 2, (val) =>
         {
-            collider.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            collider.size = new Vector2(val, collider.size.y);
+        }, SquashTime, 0.0f, Animation.Curve);
     }
 
     public override void Unsquash(Vector3 playerPosition)
@@ -54,16 +54,16 @@ public class PositionAndSizeSquashable : PositionSquashable
     protected void UnsquashSize()
     {
         var size = sprite.size;
-        Tween.Value(size, new Vector2(size.x * 2, size.y), (val) =>
+        Tween.Value(size.x, size.x * 2, (val) =>
         {
-            sprite.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            sprite.size = new Vector2(val, sprite.size.y);
+        }, SquashTime, 0.0f, Animation.Curve);
         
         var colliderSize = collider.size;
-        Tween.Value(colliderSize, new Vector2(colliderSize.x * 2, colliderSize.y), (val) =>
+        Tween.Value(colliderSize.x, colliderSize.x * 2, (val) =>
         {
-            collider.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            collider.size = new Vector2(val, collider.size.y);
+        }, SquashTime, 0.0f, Animation.Curve);
     }
     
     // VERTICAL SQUASH
@@ -76,16 +76,16 @@ public class PositionAndSizeSquashable : PositionSquashable
     protected void VerticalSquashSize()
     {
         var size = sprite.size;
-        Tween.Value(size, new Vector2(size.x, size.y / 2), (val) =>
+        Tween.Value(size.y, size.y / 2, (val) =>
         {
-            sprite.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            sprite.size = new Vector2(sprite.size.x, val);
+        }, SquashTime, 0.0f, Animation.Curve);
         
         var colliderSize = collider.size;
-        Tween.Value(colliderSize, new Vector2(colliderSize.x, colliderSize.y / 2), (val) =>
+        Tween.Value(colliderSize.y, colliderSize.y / 2, (val) =>
         {
-            collider.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            collider.size = new Vector2(collider.size.x, val);
+        }, SquashTime, 0.0f, Animation.Curve);
     }
 
     
@@ -99,15 +99,15 @@ public class PositionAndSizeSquashable : PositionSquashable
     protected void VerticalUnsquashSize()
     {
         var size = sprite.size;
-        Tween.Value(size, new Vector2(size.x, size.y * 2), (val) =>
+        Tween.Value(size.y, size.y * 2, (val) =>
         {
-            sprite.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            sprite.size = new Vector2(sprite.size.x, val);
+        }, SquashTime, 0.0f, Animation.Curve);
         
         var colliderSize = collider.size;
-        Tween.Value(colliderSize, new Vector2(colliderSize.x, colliderSize.y * 2), (val) =>
+        Tween.Value(colliderSize.y, colliderSize.y * 2, (val) =>
         {
-            collider.size = val;
-        }, SquashTime, 0.0f, Tween.EaseLinear);
+            collider.size = new Vector2(collider.size.x, val);
+        }, SquashTime, 0.0f, Animation.Curve);
     }
 }

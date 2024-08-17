@@ -23,7 +23,7 @@ public class PositionSquashable : Squashable
             playerPosition.x - relativePosition.x / 2, 
             position.y,
             position.z);
-        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Tween.EaseLinear);
+        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Animation.Curve);
     }
 
     public override void Unsquash(Vector3 playerPosition)
@@ -40,7 +40,7 @@ public class PositionSquashable : Squashable
             playerPosition.x - relativePosition.x * 2, 
             position.y,
             position.z);
-        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Tween.EaseLinear);
+        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Animation.Curve);
     }
     
     // VERTICAL SQUASH
@@ -59,7 +59,7 @@ public class PositionSquashable : Squashable
             position.x,
             playerPosition.y - relativePosition.y / 2, 
             position.z);
-        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Tween.EaseLinear);
+        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Animation.Curve);
     }
 
     public override void VerticalUnsquash(Vector3 playerPosition)
@@ -77,6 +77,6 @@ public class PositionSquashable : Squashable
             position.x,
             playerPosition.y - relativePosition.y * 2, 
             position.z);
-        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Tween.EaseLinear);
+        Tween.Position(transform, finalPosition, SquashTime, 0.0f, Animation.Curve);
     }
 }

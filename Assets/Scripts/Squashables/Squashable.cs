@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Squashable : MonoBehaviour
 {
     public const float SquashTime = 0.2f;
+    public SquashableAnimation Animation;
 
 
     public abstract void Squash(Vector3 playerPosition);
