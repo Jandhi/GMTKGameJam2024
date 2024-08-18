@@ -62,11 +62,11 @@ public class PlayerController : MonoBehaviour
         {
             jumpInput = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Comma))
+        if (Input.GetButtonDown("HorizontalSqueeze"))
         {
             SquashManager.Instance.ToggleSquash(transform.position);
         }
-        if (Input.GetKeyDown(KeyCode.Period))
+        if (Input.GetButtonDown("VerticalSqueeze"))
         {
             SquashManager.Instance.ToggleSquash(transform.position, true);
         }
