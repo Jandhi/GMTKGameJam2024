@@ -99,11 +99,14 @@ public class Portal : PositionSquashable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(!IsOpen || Pair.JustPorted) return;
+        
         
         var player = other.GetComponent<PlayerController>();
         if (player != null)
         {
+            if(!IsOpen || Pair.JustPorted) return;
+            SquashManager.Instance.IsPorting = true;
+            
             JustPorted = true;
             StartCoroutine(Suction(player));
         }
@@ -116,5 +119,6 @@ public class Portal : PositionSquashable
         player.SuckOut(Pair.transform.position);
         yield return new WaitForSeconds(1.0f);
         JustPorted = false;
+        SquashManager.Instance.IsPorting = false;
     }
 }

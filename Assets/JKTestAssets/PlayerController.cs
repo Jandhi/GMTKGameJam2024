@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
     public void SuckIn(Vector3 position)
     {
         this.GetComponent<Rigidbody2D>().simulated = false;
-        Tween.Position(transform, position, SuckDuration, 0.0f);
+        Tween.Position(transform, new Vector3(position.x, position.y, transform.position.z), SuckDuration, 0.0f);
         Tween.Rotation(transform, new Vector3(0f, 0f, (360f * 3f)), SuckDuration, 0.0f);
         Tween.LocalScale(transform, Vector2.zero, SuckDuration, 0.0f);
     }
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
     public void SuckOut(Vector3 position)
     {
         transform.position = position;
-        Tween.Position(transform, position, SuckDuration, 0.0f);
+        Tween.Position(transform, new Vector3(position.x, position.y, transform.position.z), SuckDuration, 0.0f);
         Tween.Rotation(transform, new Vector3(0f, 0f, (360f * -3f)), SuckDuration, 0.0f);
         Tween.LocalScale(transform, Vector2.one, SuckDuration, 0.0f);
         StartCoroutine(SuckOutEnd());
