@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
     public float SuckDuration = 0.5f;
     private AudioSource audio;
+    public AudioSource DeathAudio;
 
     [SerializeField] EdgeCollider2D feetCollider;
     [SerializeField] EdgeCollider2D rightCollider;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("Die");
+        DeathAudio.Play();
         this.isDead = true;
         ani.SetBool("IsDead", true);
         StartCoroutine(DelayedSpawn());

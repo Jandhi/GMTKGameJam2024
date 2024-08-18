@@ -260,7 +260,6 @@ GameObject:
   - component: {fileID: 88602891}
   - component: {fileID: 88602890}
   - component: {fileID: 88602889}
-  - component: {fileID: 88602894}
   m_Layer: 0
   m_Name: cheese
   m_TagString: Untagged
@@ -844,15 +843,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913334390989624720, guid: 0b16f2dfe72f14f7182796371cd50844, type: 3}
       propertyPath: m_Size.y
-      value: -3.0881906
+      value: -3.1664786
       objectReference: {fileID: 0}
     - target: {fileID: 7608982967879449478, guid: 0b16f2dfe72f14f7182796371cd50844, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.9397
+      value: 38.838
       objectReference: {fileID: 0}
     - target: {fileID: 7608982967879449478, guid: 0b16f2dfe72f14f7182796371cd50844, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8246
+      value: -1.753
       objectReference: {fileID: 0}
     - target: {fileID: 7608982967879449478, guid: 0b16f2dfe72f14f7182796371cd50844, type: 3}
       propertyPath: m_LocalPosition.z

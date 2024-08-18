@@ -10,6 +10,9 @@ public class SquashManager : Singleton<SquashManager>
     public bool IsVerticalSquashed = false;
     public bool SquashCoolDownExpired = true;
     public bool IsPorting = false;
+    public AudioClip Squash;
+    public AudioClip Unsquash;
+    public AudioSource Player;
     public bool CanSquash => !IsPorting && SquashCoolDownExpired;
     
     public List<Squashable> Squashables = new List<Squashable>();
@@ -31,6 +34,9 @@ public class SquashManager : Singleton<SquashManager>
             IsVerticalSquashed = !IsVerticalSquashed;
             if (IsVerticalSquashed)
             {
+                Player.clip = Squash;
+                Player.Play();
+                
                 Debug.Log("Vertical Squash");
                 Squashables.ForEach(sq =>
                 {
@@ -42,6 +48,9 @@ public class SquashManager : Singleton<SquashManager>
             }
             else
             {
+                Player.clip = Unsquash;
+                Player.Play();
+                
                 Debug.Log("Vertical Unsquash");
                 Squashables.ForEach(sq =>
                 {
@@ -56,6 +65,9 @@ public class SquashManager : Singleton<SquashManager>
         IsSquashed = !IsSquashed;
         if (IsSquashed)
         {
+            Player.clip = Squash;
+            Player.Play();
+            
             Debug.Log("Squash");
             Squashables.ForEach(sq =>
             {
@@ -64,6 +76,9 @@ public class SquashManager : Singleton<SquashManager>
         }
         else
         {
+            Player.clip = Unsquash;
+            Player.Play();
+            
             Debug.Log("Unsquash");
             Squashables.ForEach(sq =>
             {
