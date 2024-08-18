@@ -8,30 +8,25 @@ public class SquashManager : Singleton<SquashManager>
 {
     public bool IsSquashed = false;
     public bool IsVerticalSquashed = false;
-    public bool CanSquash = true;
-    public bool VerticalCanSquash = true;
+    public bool SquashCoolDownExpired = true;
+    public bool IsPorting = false;
+    public bool CanSquash => !IsPorting && SquashCoolDownExpired;
     
     public List<Squashable> Squashables = new List<Squashable>();
 
     public IEnumerator ResetCanSquash(bool isVertical = false)
     {
         yield return new WaitForSeconds(0.5f);
-        if (isVertical)
-        {
-            VerticalCanSquash = true;
-        }
-        else
-        {
-            CanSquash = true;
-        }
+        SquashCoolDownExpired = true;
     }
     
     public void ToggleSquash(Vector3 playerPosition, bool isVertical = false)
     {
+        if(!CanSquash) return;
+        SquashCoolDownExpired = false;
+        
         if (isVertical)
         {
-            if(!VerticalCanSquash) return;
-            VerticalCanSquash = false;
             
             IsVerticalSquashed = !IsVerticalSquashed;
             if (IsVerticalSquashed)
@@ -39,7 +34,10 @@ public class SquashManager : Singleton<SquashManager>
                 Debug.Log("Vertical Squash");
                 Squashables.ForEach(sq =>
                 {
-                    if (sq != null) sq.VerticalSquash(playerPosition);
+                    if (sq != null)
+                    {
+                        sq.VerticalSquash(playerPosition);
+                    }
                 });
             }
             else
@@ -54,10 +52,6 @@ public class SquashManager : Singleton<SquashManager>
             StartCoroutine(ResetCanSquash(true));
             return;
         }
-        
-        
-        if(!CanSquash) return;
-        CanSquash = false;
         
         IsSquashed = !IsSquashed;
         if (IsSquashed)

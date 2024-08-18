@@ -3,13 +3,21 @@ using UnityEngine;
 public class SingleDimensionSquash : PositionAndSizeSquashable
 {
     public bool IsVertical = false;
+    public bool IsRotated = false;
 
     public override void Squash(Vector3 playerPosition)
     {
         SquashPosition(playerPosition);
         if (!IsVertical)
         {
-            SquashSize();
+            if (IsRotated)
+            {
+                VerticalSquashSize();
+            }
+            else
+            {
+                SquashSize();
+            }
         }
     }
 
@@ -18,7 +26,14 @@ public class SingleDimensionSquash : PositionAndSizeSquashable
         UnsquashPosition(playerPosition);
         if (!IsVertical)
         {
-            UnsquashSize();
+            if (IsRotated)
+            {
+                SquashSize();    
+            }
+            else
+            {
+                UnsquashSize();
+            }
         }
     }
 
@@ -27,7 +42,14 @@ public class SingleDimensionSquash : PositionAndSizeSquashable
         VerticalSquashPosition(playerPosition);
         if (IsVertical)
         {
-            VerticalSquashSize();
+            if (IsRotated)
+            {
+                SquashSize();
+            }
+            else
+            {
+                VerticalSquashSize();
+            }
         }
     }
 
@@ -36,7 +58,14 @@ public class SingleDimensionSquash : PositionAndSizeSquashable
         VerticalUnsquashPosition(playerPosition);
         if (IsVertical)
         {
-            VerticalUnsquashSize();
+            if (IsRotated)
+            {
+                UnsquashSize();
+            }
+            else
+            {
+                VerticalUnsquashSize();
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PhysicsSquashable : PositionSquashable
 {
     private Rigidbody2D Rigidbody2D;
-    public float ForceMultiplier;
+    public float ForceMultiplier = 100f;
     
     void Start()
     {

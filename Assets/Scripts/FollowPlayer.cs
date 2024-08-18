@@ -17,7 +17,7 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         // Don't follow dead players
-        if(Player.isDead) return;
+        if(Player == null || Player.isDead) return;
 
         var position = Player.transform.position;
         var target = new Vector3(

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr;
     public bool isDead = false;
     public GameObject spawnPoint;
+    public float SuckDuration = 0.5f;
 
     [SerializeField] EdgeCollider2D feetCollider;
     [SerializeField] EdgeCollider2D rightCollider;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         ani.SetBool("IsDead", false);
         this.isDead = false;
-        transform.position = spawnPoint.transform.position;
+        transform.position = spawnPoint.transform.position + Vector3.up * 0.1f;
         GetComponent<Rigidbody2D>().totalForce = Vector2.zero;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
@@ -133,7 +134,6 @@ public class PlayerController : MonoBehaviour
 
             if(Mathf.Abs(animationHorizontalInput) > 0f)
             {
-                Debug.Log(Input.GetButton ("Horizontal"));
                 ani.SetBool("IsRunning", true);
             }
             else
@@ -154,5 +154,28 @@ public class PlayerController : MonoBehaviour
                 ani.SetBool("IsFalling", false);
             }
         }
+    }
+    
+    public void SuckIn(Vector3 position)
+    {
+        this.GetComponent<Rigidbody2D>().simulated = false;
+        Tween.Position(transform, new Vector3(position.x, position.y, transform.position.z), SuckDuration, 0.0f);
+        Tween.Rotation(transform, new Vector3(0f, 0f, (360f * 3f)), SuckDuration, 0.0f);
+        Tween.LocalScale(transform, Vector2.zero, SuckDuration, 0.0f);
+    }
+
+    public void SuckOut(Vector3 position)
+    {
+        transform.position = position;
+        Tween.Position(transform, new Vector3(position.x, position.y, transform.position.z), SuckDuration, 0.0f);
+        Tween.Rotation(transform, new Vector3(0f, 0f, (360f * -3f)), SuckDuration, 0.0f);
+        Tween.LocalScale(transform, Vector2.one, SuckDuration, 0.0f);
+        StartCoroutine(SuckOutEnd());
+    }
+
+    IEnumerator SuckOutEnd()
+    {
+        yield return new WaitForSeconds(SuckDuration);
+        this.GetComponent<Rigidbody2D>().simulated = true;
     }
 }
