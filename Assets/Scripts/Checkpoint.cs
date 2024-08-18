@@ -8,8 +8,8 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public bool isFlagUp = false;
-    private float flagBottom;
-    private float flagTop;
+    private float flagBottom => Flag.transform.position.y;
+    private float flagTop => flagBottom + Pole.size.y * 0.9f;
     private float flagSpeed = 0.2f;
     public SpriteRenderer Pole;
     public SpriteRenderer Flag;
@@ -18,8 +18,6 @@ public class Checkpoint : MonoBehaviour
     {
         Debug.Log("START");
         CheckPointManager.Instance.Checkpoints.Add(this);
-        flagBottom = Flag.transform.position.y;
-        flagTop = flagBottom + Pole.size.y - 0.05f;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,6 +35,7 @@ public class Checkpoint : MonoBehaviour
 
     public void RaiseFlag()
     {
+        GetComponent<AudioSource>().Play();
         if(isFlagUp) return;
         isFlagUp = true;
         var position = Flag.transform.position;

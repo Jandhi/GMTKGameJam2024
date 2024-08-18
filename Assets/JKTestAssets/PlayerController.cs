@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
     public float SuckDuration = 0.5f;
     private AudioSource audio;
+    public AudioSource JumpAudio;
     public AudioSource DeathAudio;
 
     [SerializeField] EdgeCollider2D feetCollider;
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         if(feetCollider.IsTouchingLayers(mask) && jumpInput >0)
         {
+            JumpAudio.Play();
             rb.AddForce(transform.up * jumpSpeed *jumpInput, ForceMode2D.Impulse);
         }
         else

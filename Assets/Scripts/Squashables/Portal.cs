@@ -114,6 +114,7 @@ public class Portal : PositionSquashable
 
     IEnumerator Suction(PlayerController player)
     {
+        GetComponent<AudioSource>().Play();
         player.SuckIn(transform.position);
         yield return new WaitForSeconds(player.SuckDuration);
         player.SuckOut(Pair.transform.position);
