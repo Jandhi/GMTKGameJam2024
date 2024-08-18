@@ -39,7 +39,10 @@ public class SquashManager : Singleton<SquashManager>
                 Debug.Log("Vertical Squash");
                 Squashables.ForEach(sq =>
                 {
-                    if (sq != null) sq.VerticalSquash(playerPosition);
+                    if (sq != null)
+                    {
+                        sq.VerticalSquash(playerPosition);
+                    }
                 });
             }
             else

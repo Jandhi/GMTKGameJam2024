@@ -11,6 +11,7 @@ public class CheckPointManager : Singleton<CheckPointManager>
 
     public void SetCheckpoint(Checkpoint checkpoint)
     {
+        Debug.Log("SET CHECKPOINT");
         Player.spawnPoint = checkpoint.gameObject;
         checkpoint.RaiseFlag();
             

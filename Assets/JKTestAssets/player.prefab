@@ -353,6 +353,7 @@ MonoBehaviour:
   jumpSpeed: 3
   isDead: 0
   spawnPoint: {fileID: 0}
+  SuckDuration: 0.2
   feetCollider: {fileID: 4088269283719027016}
   rightCollider: {fileID: 1895946077532241842}
   leftCollider: {fileID: 1325471959014242146}
