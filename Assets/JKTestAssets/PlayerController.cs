@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool isDead = false;
     public GameObject spawnPoint;
     public float SuckDuration = 0.5f;
+    private AudioSource audio;
 
     [SerializeField] EdgeCollider2D feetCollider;
     [SerializeField] EdgeCollider2D rightCollider;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         mask = LayerMask.GetMask("Platform");
         ani = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
     }
 
     public void Die()
@@ -154,6 +156,11 @@ public class PlayerController : MonoBehaviour
                 ani.SetBool("IsFalling", false);
             }
         }
+    }
+
+    public void Skitter()
+    {
+        audio.Play();
     }
     
     public void SuckIn(Vector3 position)

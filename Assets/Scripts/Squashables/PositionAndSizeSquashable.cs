@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class PositionAndSizeSquashable : PositionSquashable
 {
-    private SpriteRenderer sprite;
-    private BoxCollider2D collider;
-    private Vector2 baseSize;
+    protected SpriteRenderer sprite;
+    protected BoxCollider2D collider;
+    protected Vector2 baseSize;
     public bool scaleCollider = true;
     
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class PositionAndSizeSquashable : PositionSquashable
         SquashSize();
     }
 
-    protected void SquashSize()
+    protected virtual void SquashSize()
     {
         var size = sprite.size;
         Tween.Value(size.x, size.x / 2, (val) =>
@@ -51,7 +51,7 @@ public class PositionAndSizeSquashable : PositionSquashable
         UnsquashSize();
     }
     
-    protected void UnsquashSize()
+    protected virtual void UnsquashSize()
     {
         var size = sprite.size;
         Tween.Value(size.x, size.x * 2, (val) =>
@@ -73,7 +73,7 @@ public class PositionAndSizeSquashable : PositionSquashable
         VerticalSquashSize();
     }
 
-    protected void VerticalSquashSize()
+    protected virtual void VerticalSquashSize()
     {
         var size = sprite.size;
         Tween.Value(size.y, size.y / 2, (val) =>
@@ -96,7 +96,7 @@ public class PositionAndSizeSquashable : PositionSquashable
         VerticalUnsquashSize();
     }
 
-    protected void VerticalUnsquashSize()
+    protected virtual void VerticalUnsquashSize()
     {
         var size = sprite.size;
         Tween.Value(size.y, size.y * 2, (val) =>

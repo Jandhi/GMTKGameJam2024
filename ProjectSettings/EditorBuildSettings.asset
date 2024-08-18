@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: f2d81a4839f7f44a4b937ced23026264
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Jan's Playground.unity
     guid: 40ba7883e47e448dea60f691d575dd49
+  - enabled: 1
+    path: Assets/Scenes/AcidLevel.unity
+    guid: 7969db606cb0c4e40b5a5d5311c7a2a2
   m_configObjects: {}

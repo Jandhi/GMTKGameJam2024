@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7921b1ed69004d4b9725319109172222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Animation: {fileID: 11400000, guid: 5a1006f03e173498d9943cc7a5bc502e, type: 2}
   scaleCollider: 1
 --- !u!61 &4815305754993714125
 BoxCollider2D:
