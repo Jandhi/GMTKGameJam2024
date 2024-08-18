@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4144367770783471632}
   - component: {fileID: 8196364326479006887}
   - component: {fileID: 7410510418191929316}
+  - component: {fileID: 700601078235059325}
   m_Layer: 0
   m_Name: KillBox
   m_TagString: Untagged
@@ -90,3 +91,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5000abb93f79c45388d89bd3b2234b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &700601078235059325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905782485452763074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a12eef09ceb4ac19c35912e56688c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animation: {fileID: 11400000, guid: ac175c6fefe2848319067ed5805402b7, type: 2}
