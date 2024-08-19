@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pixelplacement;
 using UnityEngine;
 
 public class Portal : PositionSquashable
@@ -40,7 +41,12 @@ public class Portal : PositionSquashable
         _animator = GetComponent<Animator>();
         if(OpenWhen is OpenState.Always or OpenState.Unsquashed or OpenState.VerticalUnsquashed) Open();
     }
-    
+
+    void FixedUpdate()
+    {
+        transform.Rotate(Vector3.forward, 1f);
+    }
+
     public override void Squash(Vector3 playerPosition)
     {
         base.Squash(playerPosition);

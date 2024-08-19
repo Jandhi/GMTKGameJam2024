@@ -8,8 +8,8 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public bool isFlagUp = false;
-    private float flagBottom => Flag.transform.position.y;
-    private float flagTop => flagBottom + Pole.size.y * 0.9f;
+    private float flagBottom => Pole.size.y * -0.2f;
+    private float flagTop => Pole.size.y * 0.9f;
     private float flagSpeed = 0.2f;
     public SpriteRenderer Pole;
     public SpriteRenderer Flag;
@@ -39,7 +39,7 @@ public class Checkpoint : MonoBehaviour
         if(isFlagUp) return;
         isFlagUp = true;
         var position = Flag.transform.position;
-        Tween.Position(Flag.transform, new Vector3(position.x, flagTop, position.z),
+        Tween.Position(Flag.transform, new Vector3(position.x, flagTop + this.transform.position.y, position.z),
             flagSpeed, 0.0f);
     }
 
@@ -48,7 +48,7 @@ public class Checkpoint : MonoBehaviour
         if(!isFlagUp) return;
         isFlagUp = false;
         var position = Flag.transform.position;
-        Tween.Position(Flag.transform, new Vector3(position.x, flagBottom, position.z),
+        Tween.Position(Flag.transform, new Vector3(position.x, flagBottom + this.transform.position.y, position.z),
             flagSpeed, 0.0f);
     }
 }

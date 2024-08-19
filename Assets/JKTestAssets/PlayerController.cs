@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         this.isDead = true;
         ani.SetBool("IsDead", true);
         StartCoroutine(DelayedSpawn());
+        GetComponent<ParticleEffectController>().PlayBloodVFX();
     }
 
     IEnumerator DelayedSpawn()

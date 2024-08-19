@@ -102,6 +102,7 @@ MonoBehaviour:
   Animation: {fileID: 11400000, guid: 5a1006f03e173498d9943cc7a5bc502e, type: 2}
   scaleCollider: 1
   IsVertical: 0
+  IsRotated: 0
 --- !u!61 &3274435623194892587
 BoxCollider2D:
   m_ObjectHideFlags: 0

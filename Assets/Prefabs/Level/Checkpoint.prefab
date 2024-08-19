@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5338661906266261209}
   - component: {fileID: 3129263067288879968}
   - component: {fileID: 6268781517270132965}
+  - component: {fileID: 2349814403942038295}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -191,6 +192,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2349814403942038295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6272414436001621208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a12eef09ceb4ac19c35912e56688c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animation: {fileID: 11400000, guid: 5a1006f03e173498d9943cc7a5bc502e, type: 2}
 --- !u!1 &6402118700374795980
 GameObject:
   m_ObjectHideFlags: 0
