@@ -6,12 +6,14 @@ public class Accordion : PositionAndSizeSquashable
 {
     public AudioSource SquashAudio;
     public AudioSource UnsquashAudio;
-    
+    public ParticleSystem particleSystem;
+
     public override void Squash(Vector3 playerPosition)
     {
         SquashPosition(playerPosition);
         SquashSize();
         SquashAudio.Play();
+        particleSystem.Play();
     }
 
     public override void Unsquash(Vector3 playerPosition)
@@ -19,6 +21,7 @@ public class Accordion : PositionAndSizeSquashable
         UnsquashPosition(playerPosition);
         UnsquashSize();
         UnsquashAudio.Play();
+        particleSystem.Play();
     }
 
     // No vertical squash
