@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeWithDistance : MonoBehaviour
 {
     public float FadeMinDistance;
     public float FadeMaxDistance;
     public TMP_Text Text;
+    public RawImage img;
     private PlayerController player;
     
     // Start is called before the first frame update
@@ -39,5 +41,6 @@ public class FadeWithDistance : MonoBehaviour
     private void SetFade(float amt)
     {
         Text.color = Text.color.WithAlpha(amt);
+        if (img != null) img.color = img.color.WithAlpha(amt);
     }
 }
