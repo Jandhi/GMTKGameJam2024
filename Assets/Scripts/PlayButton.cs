@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-    public int buildIndex;
+    public AudioSource Source;
     
-    public void Load()
+    public void Load(int buildIndex)
     {
+        Source.Play();
         SceneManager.LoadScene(buildIndex);
     }
 }
