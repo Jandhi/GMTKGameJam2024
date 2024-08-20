@@ -21,7 +21,7 @@ public class FadeWithDistance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var dist = Math.Abs(player.transform.position.x - this.transform.position.x);
+        var dist = Mathf.Pow(Mathf.Pow(player.transform.position.x - this.transform.position.x, 2.0f) + Mathf.Pow(player.transform.position.y - this.transform.position.y, 2.0f), 0.5f);
         if (dist >= FadeMaxDistance)
         {
             SetFade(0);
