@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8285041653631481941}
   - component: {fileID: 5440395412747413234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: squash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032677794774230931}
   - component: {fileID: 8933249062632658011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: unsquash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 1438782257451637720}
   - component: {fileID: 3532833706802414964}
   - component: {fileID: 5903168178132020586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Accordion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

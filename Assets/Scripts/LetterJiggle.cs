@@ -8,8 +8,8 @@ public class LetterJiggle : MonoBehaviour
 {
     private Vector3 basePosition;
     private float time;
-    public float loopTime = 3f;
-    public float yVariance = 5f;
+    public float loopTime = 8f;
+    public float yVariance = 0.1f;
     
     void Start()
     {
