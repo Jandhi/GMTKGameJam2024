@@ -1233,11 +1233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2449590732005244216, guid: 586612b7b23ae40c4bfe432eb6d221be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 11.839765
+      value: 12.357
       objectReference: {fileID: 0}
     - target: {fileID: 2449590732005244216, guid: 586612b7b23ae40c4bfe432eb6d221be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.6856326
+      value: 2.332
       objectReference: {fileID: 0}
     - target: {fileID: 2449590732005244216, guid: 586612b7b23ae40c4bfe432eb6d221be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2056,6 +2056,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 655436698900652871, guid: 586612b7b23ae40c4bfe432eb6d221be, type: 3}
+      propertyPath: FadeMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 655436698900652871, guid: 586612b7b23ae40c4bfe432eb6d221be, type: 3}
+      propertyPath: FadeMinDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 707533911958765694, guid: 586612b7b23ae40c4bfe432eb6d221be, type: 3}
       propertyPath: m_SizeDelta.x
       value: 53.69
@@ -2217,6 +2225,10 @@ PrefabInstance:
     - target: {fileID: 1740115925526884995, guid: 086a626c31f8e463c8ca3c8fefdcb434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285767968542394117, guid: 086a626c31f8e463c8ca3c8fefdcb434, type: 3}
+      propertyPath: NextSceneIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3990453215315170424, guid: 086a626c31f8e463c8ca3c8fefdcb434, type: 3}
       propertyPath: m_Name

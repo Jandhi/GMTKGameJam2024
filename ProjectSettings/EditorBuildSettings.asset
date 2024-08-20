@@ -18,11 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialLevel.unity
     guid: 1b8a7e01c7b4044488a209ea8e5928ea
   - enabled: 1
-    path: Assets/Scenes/AcidLevel.unity
-    guid: 7969db606cb0c4e40b5a5d5311c7a2a2
-  - enabled: 1
     path: Assets/Scenes/LaserAndSpikesLevel.unity
     guid: d0d2e6af2275ac442bbc953c1748d918
+  - enabled: 1
+    path: Assets/Scenes/AcidLevel.unity
+    guid: 7969db606cb0c4e40b5a5d5311c7a2a2
   - enabled: 1
     path: Assets/Scenes/Portals.unity
     guid: bcdf1adb30e9c4e0b9a8f24d7b4e73b6
