@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Cheese : MonoBehaviour
 {
+    private bool eaten = false;
     private AudioSource audio;
 
     void Start()
@@ -26,6 +27,12 @@ public class Cheese : MonoBehaviour
 
     IEnumerator Eat()
     {
+        if (!eaten)
+        {
+            eaten = true;
+            if(GameManager.Instance != null) GameManager.Instance.cheeses += 1;
+        }
+        
         Tween.LocalScale(transform, Vector3.zero, 0.5f, 0.0f);
         audio.pitch = Random.Range(0.8f, 1.25f);
         audio.Play();

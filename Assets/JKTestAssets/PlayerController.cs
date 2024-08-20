@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        if (!isDead && GameManager.Instance != null) GameManager.Instance.deaths += 1;
+        
         Debug.Log("Die");
         DeathAudio.Play();
         this.isDead = true;
