@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 5003812012309669801}
   - component: {fileID: 6957333520923236914}
   - component: {fileID: 3782986733808126857}
+  - component: {fileID: 890545382250708080}
   m_Layer: 0
   m_Name: laser_end1
   m_TagString: Untagged
@@ -400,6 +401,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animation: {fileID: 11400000, guid: 5a1006f03e173498d9943cc7a5bc502e, type: 2}
+--- !u!114 &890545382250708080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348209202851143491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63868e1984eba4c41a08cad7cca5c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8749918154498662804
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +426,7 @@ GameObject:
   - component: {fileID: 8116678309128426533}
   - component: {fileID: 3891231687778873071}
   - component: {fileID: 1693816330438822872}
+  - component: {fileID: 4273534980337613898}
   m_Layer: 0
   m_Name: laser_start
   m_TagString: Untagged
@@ -580,3 +594,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4273534980337613898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8749918154498662804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63868e1984eba4c41a08cad7cca5c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

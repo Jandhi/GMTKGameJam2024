@@ -9,6 +9,11 @@ public class VolumeFalloff : MonoBehaviour
     public float MaxDistance;
     public float Volume = 1.0f;
 
+    void Start()
+    {
+        Player = FindObjectOfType<PlayerController>();
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -11,10 +11,12 @@ public class Laser : MonoBehaviour
     public GameObject start;
     public GameObject end;
     
+
     private void Start()
     {
         start.GetComponent<SpriteRenderer>().enabled = true;
         end.GetComponent<SpriteRenderer>().enabled = true;
+
         var size = GetComponent<SpriteRenderer>().size;
         start.transform.localPosition = new Vector3(-size.x / 2, 0, -0.1f);
         end.transform.localPosition = new Vector3(size.x / 2, 0, -0.1f);
@@ -31,4 +33,8 @@ public class Laser : MonoBehaviour
             player.GetComponent<Rigidbody2D>().AddForce(diff.normalized * ForceMultiplier);
         }
     }
+
+
+
 }
+
