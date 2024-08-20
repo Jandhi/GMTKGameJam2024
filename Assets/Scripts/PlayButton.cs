@@ -9,7 +9,7 @@ public class PlayButton : MonoBehaviour
     
     public void Load(int buildIndex)
     {
-        Source.Play();
+        if(Source != null) Source.Play();
         SceneManager.LoadScene(buildIndex);
     }
 }
