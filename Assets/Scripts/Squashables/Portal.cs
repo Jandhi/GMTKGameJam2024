@@ -110,9 +110,9 @@ public class Portal : PositionSquashable
         var player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            if(!IsOpen || Pair.JustPorted) return;
+            if(JustPorted || !IsOpen || Pair.JustPorted) return;
             SquashManager.Instance.IsPorting = true;
-            
+            Pair.JustPorted = true;
             JustPorted = true;
             StartCoroutine(Suction(player));
         }
@@ -126,6 +126,7 @@ public class Portal : PositionSquashable
         player.SuckOut(Pair.transform.position);
         yield return new WaitForSeconds(1.0f);
         JustPorted = false;
+        Pair.JustPorted = false;
         SquashManager.Instance.IsPorting = false;
     }
 }
